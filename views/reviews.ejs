@@ -1,0 +1,151 @@
+<%layout("boilerplate")%>
+    <link rel="stylesheet" href="/css/stars.css">
+    <link rel="stylesheet" href="/css/reviews.css">
+
+    <div class="contain1" style="margin-top:80px">
+        <%-include('flash') %>
+            <div class=" container mt-5">
+                <div class="glitch" data-text="What others say about us?">What others say about us?</div>
+                <div class="glow">What others say about us?</div>
+
+            </div>
+            <div class="card mb-3" id="aboutcard" style="margin-top:70px;width:70%">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="images/reviews/nicko2.jpg" class="card-img" alt="..." id="nicko">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+
+                            <p class="card-text"><span style="font-size:30px">"</span> This is Nick Avocado and I
+                                am an American mukbangger. I have tried all types of international cuisines but when it
+                                comes to Gourmet food, GourFood is remarkable.
+                                I found the brown balls with soup very delicious. Just the soup could be much more
+                                soupier.
+                                <span style="font-size:30px">"</span>
+                            </p>
+                            <p class="card-text" style="float:right"><small class="text-muted">~ Nick Avocado (food
+                                    journalist)</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3" id="aboutcard" style="margin-top:40px;width:70%;margin-left:25%">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="images/reviews/gordon.jpg" class="card-img" alt="..." id="gordon">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+
+                            <p class="card-text"><span style="font-size:30px">"</span>Cooking is an art and I must say
+                                the GourChefs have done it pure justice. I can vouch it's the best I
+                                have had in India. It is an experince worth going for atleast once in life. Let the food
+                                do the talking.<span style="font-size:30px">"</span>
+                            </p>
+                            <p class="card-text"><small class="text-muted" style="float:right">~ Gordon Ramsay(food
+                                    journalist)</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card mb-3" id="aboutcard" style="margin-top:40px;width:70%">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="images/reviews/kapil2.jpg" class="card-img" alt="..." id="kapil">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+
+                            <p class="card-text"><span style="font-size:30px">"</span> Ye dekh rhe ho? isse kehte hai 5
+                                star ka khana. Makkhan malai maar ke kya pakwan bnate hai ye log ! kya baat! Dil se bas
+                                ek awaz nikalti hai-
+                                "GourFood ka khana chook na jana!"
+                                <span style="font-size:30px">"</span>
+                            </p>
+                            <p class="card-text"><small class="text-muted" style="float:right">~Kapil
+                                    Sharma(comedian)</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="contain2">
+        <div class="container">
+
+            <div class="glitch" data-text="Leave a Review">Leave a Review</div>
+            <div class="glow">Leave a Review</div>
+            <form action="/reviews" method="post" class="my-3 validated-form" novalidate>
+
+
+                <div class="mb-3">
+                    <fieldset class="starability-growRotate">
+                        <legend>Rating : </legend>
+                        <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="1" checked
+                            aria-label="No rating." required />
+                        <input type="radio" id="first-rate1" name="rating" value="1" />
+                        <label for="first-rate1" title="Terrible">1 star</label>
+                        <input type="radio" id="first-rate2" name="rating" value="2" />
+                        <label for="first-rate2" title="Not good">2 stars</label>
+                        <input type="radio" id="first-rate3" name="rating" value="3" />
+                        <label for="first-rate3" title="Average">3 stars</label>
+                        <input type="radio" id="first-rate4" name="rating" value="4" />
+                        <label for="first-rate4" title="Very good">4 stars</label>
+                        <input type="radio" id="first-rate5" name="rating" value="5" />
+                        <label for="first-rate5" title="Amazing">5 stars</label>
+                    </fieldset>
+                </div>
+                <div class="mb-3">
+                    <label for="review" class="form-label" style="font-size:1.5em">Review : </label>
+                    <textarea name="text" id="review" cols="30" rows="3" class="form-control input-color"
+                        required></textarea>
+                    <div class="valid-feedback">
+                        Looks Good!
+                    </div>
+                </div>
+                <button class="btn btn-success mt-md-3 mb-5">Submit review</button>
+            </form>
+        </div>
+
+        <div>
+
+
+            <div class="scrollbar row" id="ex4">
+                <div class="col-1"></div>
+                <div class="content col-10">
+                    <div id="menuwrapper">
+                        <ul>
+                            <% for(let r of rev){ %>
+                                <li>
+                                    <h4>
+
+                                        <%=r.author.username%>
+                                    </h4>
+                                    <p class="starability-result" data-rating="<%=r.rating%>"></p>
+                                    <h5 style="padding-top:20px;padding-bottom:20px">
+                                        <%=r.text %>
+                                    </h5>
+                                    <% if(curruser && r.author.equals(curruser._id)) {%>
+                                        <form action="/reviews/<%=r._id%>?_method=DELETE" method="post">
+                                            <button class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                        <% } %>
+
+                                </li>
+                                <% } %>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <br>
+            <br>
+
+            <br>
+            <br>
+        </div>

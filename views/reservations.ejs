@@ -1,0 +1,102 @@
+<%layout("boilerplate")%>
+    <link rel="stylesheet" href="/css/reservation.css">
+    <% if(success &&success.length){ %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert"
+            style="margin-top:120px;width:50%;margin-left:350px">
+            <%=success%>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <% } %>
+            <% if(error &&error.length){ %>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <%=error%>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <% } %>
+                    <div id="imagecontain" class="container" style="padding-top:70px;">
+
+                        <div class="sign py-3">
+                            <span class="fast-flicker">R</span>eser<span class="flicker">v</span>e a <span
+                                class="flicker">T</span>able
+                        </div>
+                        <form action="/reservation" method="post" class="validated-form" novalidate>
+                            <div class="row">
+
+                                <div class="col-md-6 form-group">
+                                    <label for="fname">First Name : </label>
+                                    <input type="text" class="form-control" id="fname" aria-describedby="emailHelp"
+                                        name="name" required>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="lname">Last Name : </label>
+                                    <input type="text" class="form-control" id="lname" aria-describedby="emailHelp">
+
+                                </div>
+                                <div class="col-12 form-group">
+                                    <label for="email">Email : </label>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                        name="email" required>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <label for="num">Phone No. : </label>
+                                    <input type="text" class="form-control" id="num" aria-describedby="emailHelp"
+                                        name="phone" required>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="date">Date : </label>
+                                    <input type="date" class="form-control" id="date" aria-describedby="emailHelp"
+                                        name="date" required>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-group">
+                                    <label for="time">Time : </label>
+                                    <input type="time" class="form-control" id="time" aria-describedby="emailHelp"
+                                        required>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <label for="person">Number of person : </label>
+                                    <input type="number" class="form-control" id="person" aria-describedby="emailHelp"
+                                        max="20" min="1" placeholder="Max 20 allowed" name="person" required>
+                                    <div class="valid-feedback">
+                                        Looks Good!
+                                    </div>
+                                </div>
+                                <div class="col-12 form-group">
+                                    <label for="detail">Details : </label>
+                                    <textarea class="form-control" id="detail" aria-describedby="emailHelp"
+                                        name="details"></textarea>
+
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-success mb-4">Book</button>
+                                </div>
+
+
+
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+                        </form>
+
+
+
+                    </div>

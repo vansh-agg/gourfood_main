@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="border-radius:60px; margin-top:10px;">
+    <a class="navbar-brand mx-auto  sign" href="#top">
+        <div class="sign1">
+            <span class="fast-flicker">G</span>OUR<span class="flicker">F</span>OOD
+        </div>
+    </a>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon "></span>
+    </button>
+
+    <div class="collapse navbar-collapse col-lg-9" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-3">
+                <button id="btn1" onclick="Toggle()" onclick="onClick"><i class="fa-solid fa-moon"></i></button>
+
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/menu">
+                    Menu
+                </a>
+            </li>
+
+            <li class="nav-item mx-3">
+                <a class="nav-link" href="/reviews" tabindex="-1" aria-disabled="true">Reviews</a>
+            </li>
+            <li class="nav-item dropdown mx-3">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Contact
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item py-2" href="/reservation">Reservation</a>
+                    <a class="dropdown-item py-2" href="/contact">Reach us out</a>
+
+                </div>
+            </li>
+            <li class="nav-item ml-5 mr-3">
+                <% if(!curruser){ %>
+                    <a class="nav-link" href="/login">Login</a>
+            </li>
+
+            <% } else { %>
+
+                <li class="nav-item mx-3">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <% } %>
+        </ul>
+    </div>
+</nav>
